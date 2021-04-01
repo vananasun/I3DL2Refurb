@@ -1,0 +1,4 @@
+S   Mildly interpolate knob values (dry/wet only currently) so they don't pop and crackle
+S   Cosine mix knob
+
+C   Make some presets

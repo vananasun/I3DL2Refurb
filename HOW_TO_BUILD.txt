@@ -1,0 +1,4 @@
+You'll need to have the VST2 SDK, for this that includes atleast:
+audioeffect.cpp
+audioeffectx.cpp
+vstplugmain.cpp
