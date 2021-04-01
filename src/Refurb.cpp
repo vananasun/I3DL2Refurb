@@ -75,14 +75,23 @@ float Refurb::getParameter(VstInt32 index) {
 void Refurb::setParameter(VstInt32 index, float value) {
     this->reverb->setParameter(index, value);
     this->editor->updateParameters();
-    printf("setParameter %i %f rendering...\n", index, value);
-    this->editor->getVananaGUI()->render();
+    this->editor->getVananaGUI()->redraw();
+    // this->editor->getVananaGUI()->render(); // @TODO: get rid of double render call
 }
 
 void Refurb::setParameterAutomated(VstInt32 index, float value) {
-    setParameter(index, value);
     audioMaster(&cEffect, audioMasterAutomate, index, 0, nullptr, value);
+    setParameter(index, value);
+    this->editor->getVananaGUI()->render(); // @TODO: test if this can be rid of
 }
+
+// void Refurb::beginEdit(VstInt32 index) {
+//     audioMaster(&cEffect, audioMasterBeginEdit, index, 0, nullptr, 0.0f);
+// }
+//
+// void Refurb::endEdit(VstInt32 index) {
+//     audioMaster(&cEffect, audioMasterEndEdit, index, 0, nullptr, 0.0f);
+// }
 
 void Refurb::getParameterName(VstInt32 index, char* label) {
     switch(index) {

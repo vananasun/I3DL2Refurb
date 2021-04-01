@@ -53,6 +53,8 @@ void UIKnob::handleMouseButton(Mouse* mouse, int btn, bool state) {
         }
 
         // Un-grab
+        // AudioEffectX* effectx = static_cast<AudioEffectX*>(Van::me().getEditor()->getEffect());
+        // effectx->endEdit(this->paramID);
         this->grabbed = false;
         return;
     }
@@ -60,6 +62,8 @@ void UIKnob::handleMouseButton(Mouse* mouse, int btn, bool state) {
     // Check whether we clicked the button
     this->grabbed = (state && mouse->inRect(this->bounds));
     if (this->grabbed) {
+        // AudioEffectX* effectx = static_cast<AudioEffectX*>(Van::me().getEditor()->getEffect());
+        // effectx->beginEdit(this->paramID);
         Van::me().getWindow().setCursor(CURSOR_VERTICAL);
         Van::me().getWindow().setCursorLocked(true);
     }

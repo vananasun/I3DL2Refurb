@@ -1,3 +1,4 @@
+M   Remove Reverb parameter
 S   Mildly interpolate knob values (dry/wet only currently) so they don't pop and crackle
 S   Cosine mix knob
 
