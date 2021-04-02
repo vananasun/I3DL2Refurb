@@ -48,13 +48,13 @@ I3DL2Reverb::I3DL2Reverb() {
 	m_param[kI3DL2ReverbDecayHFRatio] = 0.3842105f;
 	m_param[kI3DL2ReverbReflections] = 0.672545433f;
 	m_param[kI3DL2ReverbReflectionsDelay] = 0.233333333f;
-	m_param[kI3DL2ReverbReverb] = 0.85f;
+	// m_param[kI3DL2ReverbReverb] = 0.85f;
 	m_param[kI3DL2ReverbReverbDelay] = 0.11f;
 	m_param[kI3DL2ReverbDiffusion] = 1.0f;
 	m_param[kI3DL2ReverbDensity] = 1.0f;
 	m_param[kI3DL2ReverbHFReference] = (5000.0f - 20.0f) / 19980.0f;
 	m_param[kI3DL2ReverbQuality] = 1.0f / 3.0f; // LQ+
-    m_param[kI3DL2ReverbDryWet] = 0.5f; // full wet
+    m_param[kI3DL2ReverbDryWet] = 0.5f;
 }
 
 
@@ -259,7 +259,7 @@ void I3DL2Reverb::setParameter(uint32_t index, float value) {
         if (value < 0.0f) value = 0.0f;
         else if (value > 1.0f) value = 1.0f;
 
-		if(index == kI3DL2ReverbQuality)
+		if (index == kI3DL2ReverbQuality)
 			value = std::round(value * 3.0f) / 3.0f;
 		m_param[index] = value;
 		m_recalcParams = true;

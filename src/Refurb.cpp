@@ -33,7 +33,7 @@ Refurb::Refurb(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, 1, I
     canProcessReplacing();
 }
 
-bool Refurb::getProductString(char* text) { strcpy(text, "I3DL2 Refurb"); return true; }
+bool Refurb::getProductString(char* text) { strcpy(text, "I3DL2 Refurb 1.0"); return true; }
 bool Refurb::getVendorString(char* text)  { strcpy(text, "vananaSun"); return true; }
 bool Refurb::getEffectName(char* name)    { strcpy(name, "I3DL2Refurb"); return true; }
 
@@ -85,14 +85,6 @@ void Refurb::setParameterAutomated(VstInt32 index, float value) {
     this->editor->getVananaGUI()->render(); // @TODO: test if this can be rid of
 }
 
-// void Refurb::beginEdit(VstInt32 index) {
-//     audioMaster(&cEffect, audioMasterBeginEdit, index, 0, nullptr, 0.0f);
-// }
-//
-// void Refurb::endEdit(VstInt32 index) {
-//     audioMaster(&cEffect, audioMasterEndEdit, index, 0, nullptr, 0.0f);
-// }
-
 void Refurb::getParameterName(VstInt32 index, char* label) {
     switch(index) {
     case I3DL2Reverb::kI3DL2ReverbRoomHF: strcpy(label, "RoomHF"); break;
@@ -100,7 +92,7 @@ void Refurb::getParameterName(VstInt32 index, char* label) {
     case I3DL2Reverb::kI3DL2ReverbDecayHFRatio: strcpy(label, "DecayHFRatio"); break;
     case I3DL2Reverb::kI3DL2ReverbReflections: strcpy(label, "Reflections"); break;
     case I3DL2Reverb::kI3DL2ReverbReflectionsDelay: strcpy(label, "ReflectionsDelay"); break;
-    case I3DL2Reverb::kI3DL2ReverbReverb: strcpy(label, "Reverb"); break;
+    // case I3DL2Reverb::kI3DL2ReverbReverb: strcpy(label, "Reverb"); break;
     case I3DL2Reverb::kI3DL2ReverbReverbDelay: strcpy(label, "ReverbDelay"); break;
     case I3DL2Reverb::kI3DL2ReverbDiffusion: strcpy(label, "Diffusion"); break;
     case I3DL2Reverb::kI3DL2ReverbDensity: strcpy(label, "Density"); break;
@@ -120,7 +112,7 @@ void Refurb::getParameterDisplay(VstInt32 index, char* text) {
     case I3DL2Reverb::kI3DL2ReverbDecayHFRatio: value = this->reverb->decayHFRatio(); break;
     case I3DL2Reverb::kI3DL2ReverbReflections: value = this->reverb->reflections() * 0.01f; break;
     case I3DL2Reverb::kI3DL2ReverbReflectionsDelay: value = this->reverb->reflectionsDelay(); break;
-    case I3DL2Reverb::kI3DL2ReverbReverb: value = this->reverb->reverb() * 0.01f; break;
+    // case I3DL2Reverb::kI3DL2ReverbReverb: value = this->reverb->reverb() * 0.01f; break;
     case I3DL2Reverb::kI3DL2ReverbReverbDelay: value = this->reverb->reverbDelay(); break;
     case I3DL2Reverb::kI3DL2ReverbDiffusion: value = this->reverb->diffusion(); break;
     case I3DL2Reverb::kI3DL2ReverbDensity: value = this->reverb->density(); break;
@@ -139,7 +131,7 @@ void Refurb::getParameterLabel(VstInt32 index, char* label) {
     switch(index) {
     case I3DL2Reverb::kI3DL2ReverbRoomHF:
     case I3DL2Reverb::kI3DL2ReverbReflections:
-    case I3DL2Reverb::kI3DL2ReverbReverb:
+    // case I3DL2Reverb::kI3DL2ReverbReverb:
         strcpy(label, "dB");
     case I3DL2Reverb::kI3DL2ReverbDecayTime:
     case I3DL2Reverb::kI3DL2ReverbReflectionsDelay:
